@@ -43,28 +43,10 @@ bash scripts/train/megatron/env_install.sh
 For users with **Ascend NPU devices**:
 ```bash
 conda activate ata
-pip install .
-pip install .[train_ascend]
-```
-vLLM Installation Guide
-```bash
-# Install vLLM
-git clone --depth 1 --branch v0.7.3 https://github.com/vllm-project/vllm
-cd vllm
-VLLM_TARGET_DEVICE=empty pip install . --extra-index https://download.pytorch.org/whl/cpu/
 
-# Install vLLM Ascend
-git clone  --depth 1 --branch v0.7.3.post1 https://github.com/vllm-project/vllm-ascend.git
-cd vllm-ascend
-pip install -e . --extra-index https://download.pytorch.org/whl/cpu/
+pip install --no-build-isolation ."[train_ascend]" --extra-index-url https://mirrors.huaweicloud.com/ascend/repos/pypi/
 ```
 
-**Note:** 
-```markdown
-- Make sure to install the versions of **vLLM** and **vLLM Ascend** that correspond to your **CANN** version.
-- Version `v0.7.3` is compatible with **CANN 0.8.1.RC1**.
-- For version compatibility and more details, refer to the official [vLLM documentation](https://vllm-ascend.readthedocs.io/en/latest/installation.html).
-```
 
 ### Verification
 
