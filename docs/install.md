@@ -43,7 +43,6 @@ bash scripts/train/megatron/env_install.sh
 For users with **Ascend NPU devices**:
 ```bash
 conda activate ata
-
 INSTALL_VLLM_ASCEND=1 pip install --no-build-isolation ."[train_ascend]" --extra-index-url https://mirrors.huaweicloud.com/ascend/repos/pypi/
 ```
 
