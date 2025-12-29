@@ -10,6 +10,11 @@ class CustomInstall(install):
 
         # Check the value of INSTALL_VLLM_ASCEND environment variable
         install_vllm_ascend = os.environ.get('INSTALL_VLLM_ASCEND', '0')  # Default to '0' if not set
+        if install_vllm_ascend not in ('0', '1'):
+            raise ValueError(
+                f"Invalid value for INSTALL_VLLM_ASCEND: {install_vllm_ascend!r}. "
+                "Expected '0' or '1'."
+            )
 
         if install_vllm_ascend == '1':
             print("Installing vLLM from source...")
